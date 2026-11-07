@@ -2,126 +2,272 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Shreyansh Kushwaha, B.Tech Electrical Engineering student: CAD design, renewable energy, embedded systems and IoT.">
-<meta property="og:title" content="SHREYANSH KUSHWAHA">
-<meta property="og:description" content="Shreyansh Kushwaha, B.Tech Electrical Engineering student: CAD design, renewable energy, embedded systems and IoT.">
-<title>SHREYANSH KUSHWAHA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shreyansh Kushwaha — Electrical Engineer</title>
+<meta name="description" content="Shreyansh Kushwaha — B.Tech Electrical Engineering. CAD design, renewable energy, embedded systems and IoT. Working prototypes and the documentation behind them.">
+<meta property="og:title" content="Shreyansh Kushwaha — Electrical Engineer">
+<meta property="og:description" content="CAD Design · Renewable Energy · Embedded Systems & IoT">
+<meta property="og:url" content="https://shrewaha.in">
+<meta name="theme-color" content="#0a0e13">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Layout: minimalist CV. Black bands open and close the page; beige body with a date/label column on the left and content on the right. Single fixed theme by choice. */
 :root{
-  --beige:#ece4d6;
-  --beige-2:#e2d8c6;
-  --black:#141311;
-  --ink:#1b1a17;
-  --muted:#6b6458;
-  --line:#cfc4b0;
-  --on-black:#ece4d6;
-  --on-black-2:#9c9486;
-  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
-  color-scheme:light;
+  --bg:#0a0e13; --bg2:#0f141b; --card:#121821; --line:#1f2834; --line2:#2a3646;
+  --text:#e8edf3; --muted:#8e9aab; --faint:#5d6878;
+  --accent:#c4f135; --accent-ink:#121a02; --accent-soft:rgba(196,241,53,.10);
+  --radius:18px; --max:1120px; --shadow:0 20px 50px rgba(0,0,0,.35);
+}
+:root[data-theme="light"]{
+  --bg:#f6f7f4; --bg2:#eef0ea; --card:#ffffff; --line:#e1e5dc; --line2:#cfd6c8;
+  --text:#11160d; --muted:#556052; --faint:#8a9486;
+  --accent:#4d7c0f; --accent-ink:#ffffff; --accent-soft:rgba(77,124,15,.09);
+  --shadow:0 20px 50px rgba(30,40,20,.10);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--beige);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--black)}
+html{scroll-behavior:smooth; scroll-padding-top:80px}
+body{margin:0; background:var(--bg); color:var(--text); font:16px/1.6 Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; transition:background .3s,color .3s}
 a{color:inherit}
-:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-::selection{background:var(--black);color:var(--beige)}
-.wrap{max-width:960px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+svg{display:block}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif; letter-spacing:-.02em; line-height:1.1; margin:0}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+.skip{position:absolute; left:-999px; top:8px; background:var(--accent); color:var(--accent-ink); padding:8px 14px; border-radius:8px; z-index:100}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px}
 
-/* nav */
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--black);color:var(--on-black)}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;padding-block:16px;flex-wrap:wrap}
-.mark{font-weight:700;letter-spacing:.18em;font-size:14px;text-decoration:none}
-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 22px}
-nav ul a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--on-black-2)}
-nav ul a:hover{color:var(--on-black)}
-
-/* hero */
-.hero{background:var(--black);color:var(--on-black)}
-.hero .wrap{padding-block:88px 72px}
-.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--on-black-2);margin:0 0 24px}
-h1{font-weight:600;font-size:clamp(48px,9vw,96px);line-height:.95;letter-spacing:-.035em;margin:0 0 28px;text-wrap:balance}
-.role-line{font-size:clamp(17px,2.2vw,21px);max-width:44ch;margin:0 0 40px;color:var(--on-black)}
-.hero-meta{display:flex;flex-wrap:wrap;gap:10px 32px;font-family:var(--mono);font-size:13px;color:var(--on-black-2);padding-top:24px;border-top:1px solid #34312c}
-.hero-meta a{text-decoration:none;color:var(--on-black)}
-.hero-meta a:hover{text-decoration:underline}
-
-/* CV rows */
-section.cv{border-bottom:1px solid var(--line)}
-section.cv .wrap{display:grid;grid-template-columns:180px minmax(0,1fr);gap:40px;padding-block:72px}
-.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:6px}
-h2{font-weight:600;font-size:clamp(26px,3.6vw,34px);line-height:1.15;letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
-h3{font-weight:600;font-size:19px;line-height:1.3;margin:0}
-p{margin:0 0 16px;max-width:64ch}
-strong{font-weight:600}
-
-.facts{display:flex;flex-wrap:wrap;gap:12px 48px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
-.facts div{display:flex;flex-direction:column}
-.facts b{font-weight:600;font-size:30px;letter-spacing:-.02em;line-height:1.1}
-.facts span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-
-.entries{display:grid;gap:0}
-.entry{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding-block:28px;border-top:1px solid var(--line)}
-.entry:first-child{border-top:0;padding-top:0}
-.when{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;padding-top:4px}
-.org{font-size:15px;color:var(--muted);margin:2px 0 10px}
-.entry ul{margin:0;padding-left:18px}
-.entry li{margin-bottom:5px;max-width:64ch}
-.entry p{margin:0}
-.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:12px 0 0 !important;padding:0 !important}
-.tags li{font-family:var(--mono);font-size:11px;padding:3px 9px;border:1px solid var(--line);margin:0 !important;color:var(--muted)}
-
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px 40px}
-.skills h4{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
-.skills ul{list-style:none;margin:0;padding:0;display:grid;gap:3px;color:var(--muted);font-size:15px}
-
-.list{list-style:none;margin:0;padding:0}
-.list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding-block:14px;border-top:1px solid var(--line)}
-.list li:first-child{border-top:0;padding-top:0}
-.list span{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right;padding-top:3px}
-
-/* contact */
-.contact{background:var(--black);color:var(--on-black)}
-.contact .wrap{display:grid;grid-template-columns:180px minmax(0,1fr);gap:40px;padding-block:80px}
-.contact .label{color:var(--on-black-2)}
-.contact h2{font-size:clamp(30px,5vw,48px)}
-.contact p{color:var(--on-black-2)}
-.rows{margin-top:32px;border-top:1px solid #34312c}
-.row{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding-block:16px;border-bottom:1px solid #34312c}
-.row small{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-black-2)}
-.row .v{font-size:18px;overflow-wrap:anywhere;min-width:0}
-.row a{text-decoration:none;border-bottom:1px solid var(--on-black-2)}
-.row a:hover{border-color:var(--on-black)}
-.copy{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid #4a463f;color:var(--on-black);padding:4px 10px;cursor:pointer}
-.copy:hover{border-color:var(--on-black)}
-
-footer{background:var(--black);color:var(--on-black-2)}
-footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:24px;font-family:var(--mono);font-size:12px;border-top:1px solid #34312c}
-
-@media (max-width:760px){
-  .hero .wrap{padding-block:56px 48px}
-  section.cv .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr);gap:16px;padding-block:52px}
-  .entry{grid-template-columns:minmax(0,1fr);gap:6px}
-  .list li{grid-template-columns:minmax(0,1fr)}
-  .list span{text-align:left;padding-top:0}
-  .row{grid-template-columns:minmax(0,1fr) auto}
-  .row small{grid-column:1/-1}
+/* Header */
+header{position:sticky; top:0; z-index:50; background:color-mix(in srgb,var(--bg) 82%,transparent); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--line)}
+.progress{position:absolute; left:0; bottom:-1px; height:2px; width:100%; background:var(--accent); transform-origin:left; transform:scaleX(0)}
+.nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+.logo{font:700 15px "Space Grotesk",sans-serif; letter-spacing:.08em; text-decoration:none; display:flex; align-items:center; gap:8px; text-transform:uppercase}
+.logo i{width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px var(--accent)}
+.links{display:flex; gap:2px; list-style:none; margin:0; padding:0}
+.links a{display:block; padding:8px 12px; border-radius:10px; font-size:14px; color:var(--muted); text-decoration:none; transition:.2s}
+.links a:hover{color:var(--text)}
+.links a.active{color:var(--text); background:var(--accent-soft)}
+.nav-r{display:flex; gap:6px; align-items:center}
+.icon-btn{width:38px; height:38px; display:grid; place-items:center; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); cursor:pointer}
+.icon-btn svg{width:18px; height:18px}
+.menu-btn{display:none}
+@media (max-width:900px){
+  .menu-btn{display:grid}
+  .links{position:fixed; inset:64px 0 auto 0; flex-direction:column; background:var(--bg); border-bottom:1px solid var(--line); padding:10px 16px 18px; transform:translateY(-8px); opacity:0; pointer-events:none; transition:.25s}
+  .links.open{transform:none; opacity:1; pointer-events:auto}
+  .links a{padding:12px; font-size:16px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-body{margin:0}
+/* Common */
+section{padding:96px 0; position:relative}
+.eyebrow{font:500 12px "JetBrains Mono",monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin:0 0 14px; display:flex; align-items:center; gap:10px}
+.eyebrow::before{content:""; width:22px; height:1px; background:currentColor}
+.h2{font-size:clamp(30px,4.4vw,46px); margin-bottom:18px; max-width:20ch}
+.lead{color:var(--muted); font-size:17px; max-width:62ch; margin:0}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:12px; font:600 15px Inter,sans-serif; text-decoration:none; border:1px solid var(--line2); background:var(--card); color:var(--text); cursor:pointer; transition:transform .15s,border-color .2s}
+.btn:hover{transform:translateY(-2px); border-color:var(--muted)}
+.btn.primary{background:var(--accent); color:var(--accent-ink); border-color:transparent}
+.btn.sm{padding:9px 14px; font-size:14px; border-radius:10px}
+.btn svg{width:16px; height:16px}
+.chip{display:inline-block; font-size:12.5px; padding:5px 11px; border-radius:99px; border:1px solid var(--line2); color:var(--muted)}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); position:relative; overflow:hidden}
+.spot::after{content:""; position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .3s;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%), var(--accent-soft), transparent 60%)}
+.spot:hover::after{opacity:1}
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease}
+.reveal.in{opacity:1; transform:none}
+.preview .reveal{opacity:1; transform:none; transition:none}
+
+/* Hero */
+#home{padding:88px 0 96px; overflow:hidden}
+.grid-bg{position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:44px 44px; mask-image:radial-gradient(ellipse 70% 60% at 70% 30%,#000 20%,transparent 75%); -webkit-mask-image:radial-gradient(ellipse 70% 60% at 70% 30%,#000 20%,transparent 75%)}
+.hero{position:relative}
+.hero > div{max-width:760px}
+.hero h1{font-size:clamp(42px,7vw,76px); margin:6px 0 18px}
+.typed{font:500 clamp(18px,2.4vw,22px) "Space Grotesk",sans-serif; color:var(--muted); min-height:1.5em; margin:0 0 18px}
+.typed b{color:var(--text); font-weight:600; border-right:2px solid var(--accent); padding-right:3px; animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{border-color:transparent}}
+.hero p.tag{color:var(--muted); max-width:52ch; margin:0 0 26px}
+.loc{display:flex; align-items:center; gap:8px; font-size:14px; color:var(--muted); margin-bottom:28px}
+.loc svg{width:15px; height:15px}
+.hero-ctas{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px}
+.socials{display:flex; gap:8px}
+.socials a{width:42px; height:42px; display:grid; place-items:center; border-radius:12px; border:1px solid var(--line); background:var(--card); transition:.2s}
+.socials a:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-2px)}
+.socials svg{width:18px; height:18px}
+
+/* About */
+.about{display:grid; grid-template-columns:1.2fr .8fr; gap:48px}
+.about-meta{display:grid; gap:18px; margin-top:28px}
+.about-meta h4{margin:0 0 8px; font:500 12px "JetBrains Mono",monospace; color:var(--faint); text-transform:uppercase; letter-spacing:.1em}
+.stats{display:grid; gap:12px; align-content:start}
+.stat{padding:22px 24px; display:flex; justify-content:space-between; align-items:flex-end}
+.stat b{font:700 44px "Space Grotesk",sans-serif; line-height:1; color:var(--accent)}
+.stat span{color:var(--muted); font-size:14px; text-align:right; max-width:14ch}
+
+/* Timeline */
+.timeline{margin-top:44px; position:relative; padding-left:28px}
+.timeline::before{content:""; position:absolute; left:6px; top:8px; bottom:8px; width:2px; background:var(--line)}
+.tl-fill{position:absolute; left:6px; top:8px; width:2px; background:var(--accent); height:0; transition:height .2s linear}
+.tl-item{position:relative; margin-bottom:16px}
+.tl-item::before{content:""; position:absolute; left:-27px; top:26px; width:12px; height:12px; border-radius:50%; background:var(--bg); border:2px solid var(--line2); transition:.3s}
+.tl-item.in::before{border-color:var(--accent); background:var(--accent)}
+.tl-card{padding:22px 24px}
+.tl-top{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline}
+.tl-top h3{font-size:20px}
+.tl-top .chip{vertical-align:middle; margin-left:6px; font-family:Inter,sans-serif; letter-spacing:0}
+.when{font:500 12.5px "JetBrains Mono",monospace; color:var(--muted)}
+.org{color:var(--accent); font-weight:600; font-size:14.5px; margin:4px 0 10px}
+.tl-card p{color:var(--muted); margin:0}
+.tl-more{all:unset; cursor:pointer; font-size:13.5px; font-weight:600; color:var(--text); margin-top:12px; display:inline-flex; align-items:center; gap:6px}
+.tl-more:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.tl-more svg{width:14px; height:14px; transition:transform .25s}
+.tl-more[aria-expanded="true"] svg{transform:rotate(180deg)}
+.tl-body{display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s ease}
+.tl-body.open{grid-template-rows:1fr}
+.tl-body > div{overflow:hidden}
+.tl-body ul{margin:12px 0 0; padding-left:18px; color:var(--muted)}
+.tl-body li{margin-bottom:6px}
+.tl-body .chips{margin-top:12px}
+
+/* Projects */
+.filters{display:flex; gap:6px; flex-wrap:wrap; margin-top:20px}
+.filter{all:unset; cursor:pointer; font-size:13.5px; font-weight:500; padding:8px 14px; border-radius:99px; border:1px solid var(--line2); color:var(--muted); transition:.2s}
+.filter:hover{color:var(--text)}
+.filter[aria-pressed="true"]{background:var(--text); color:var(--bg); border-color:var(--text)}
+.filter:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.p-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:32px}
+.proj{padding:26px; display:flex; flex-direction:column; transition:opacity .35s, transform .35s, border-color .2s}
+.proj:hover{border-color:var(--line2)}
+.proj.wide{grid-column:1/-1}
+.proj.hide{display:none}
+.proj.fading{opacity:0; transform:scale(.97)}
+.p-badge{align-self:flex-start; font:500 11px "JetBrains Mono",monospace; text-transform:uppercase; letter-spacing:.08em; padding:4px 9px; border-radius:6px; background:var(--accent-soft); color:var(--accent); margin-bottom:14px}
+.p-icon{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:var(--bg2); border:1px solid var(--line); margin-bottom:16px}
+.p-icon svg{width:22px; height:22px; color:var(--accent)}
+.proj h3{font-size:21px; margin-bottom:10px}
+.proj p{color:var(--muted); margin:0 0 18px; flex:1}
+.proj .chips{margin-top:auto}
+.p-links{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px}
+
+.feat{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; padding:32px}
+.feat > div:first-child{display:flex; flex-direction:column}
+.feat h3{font-size:26px}
+.feat p{flex:none}
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:6px 0 14px}
+.step{all:unset; cursor:pointer; padding:11px 13px; border-radius:12px; border:1px solid var(--line); background:var(--bg2); transition:.2s}
+.step b{display:block; font:500 11px "JetBrains Mono",monospace; color:var(--accent)}
+.step span{font-size:14px; font-weight:600}
+.step[aria-selected="true"]{border-color:var(--accent); background:var(--accent-soft)}
+.step:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.step-desc{color:var(--muted); font-size:14.5px; min-height:46px; margin:0 0 18px}
+.feat-ctas{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+.dl{position:relative}
+.dl-menu{position:absolute; bottom:calc(100% + 8px); left:0; min-width:220px; z-index:5; background:var(--card); border:1px solid var(--line2); border-radius:14px; padding:6px; box-shadow:var(--shadow); display:none}
+.dl-menu.open{display:block}
+.dl-menu a{display:flex; justify-content:space-between; gap:12px; padding:10px 12px; border-radius:10px; text-decoration:none; font-size:14px}
+.dl-menu a:hover,.dl-menu a:focus-visible{background:var(--bg2); outline:none}
+.dl-menu small{color:var(--muted)}
+.phone-stage{display:flex; justify-content:center; align-items:center}
+.phone{width:240px; height:480px; border-radius:36px; padding:11px; background:#0a0c10; border:1px solid #2b3040; box-shadow:var(--shadow)}
+.screen{width:100%; height:100%; border-radius:26px; background:#f7f8fa; color:#10131a; overflow:hidden; position:relative; font-size:12.5px}
+.notch{width:84px; height:20px; background:#0a0c10; border-radius:0 0 13px 13px; margin:0 auto}
+.view{position:absolute; inset:32px 12px 12px; opacity:0; transform:translateY(10px); transition:.35s; pointer-events:none}
+.view.active{opacity:1; transform:none}
+.app-h{font:700 15px "Space Grotesk",sans-serif; margin:4px 0 10px}
+.fld{background:#fff; border:1px solid #e3e6ec; border-radius:11px; padding:9px 11px; margin-bottom:7px}
+.fld small{display:block; color:#7a8193; font-size:10.5px}
+.pill{display:inline-block; background:#e9fbef; color:#127a3a; font-size:10.5px; font-weight:600; padding:3px 8px; border-radius:99px}
+.fbtn{background:#16a34a; color:#fff; text-align:center; font-weight:600; padding:10px; border-radius:11px; margin-top:10px}
+.offer{display:flex; justify-content:space-between; align-items:center; background:#fff; border:1px solid #e3e6ec; border-radius:11px; padding:9px 11px; margin-bottom:7px; animation:oin .4s both}
+.offer:nth-of-type(2){animation-delay:.12s}.offer:nth-of-type(3){animation-delay:.24s}
+.offer.best{border-color:#16a34a; box-shadow:0 0 0 3px rgba(22,163,74,.12)}
+.price{font:700 14px "Space Grotesk",sans-serif}
+.bar{height:5px; border-radius:5px; background:#e3e6ec; margin-top:6px; overflow:hidden}
+.bar i{display:block; height:100%; background:#16a34a}
+@keyframes oin{from{opacity:0; transform:translateX(12px)}to{opacity:1; transform:none}}
+
+/* Skills */
+.skills{display:grid; grid-template-columns:260px 1fr; gap:24px; margin-top:40px}
+.s-tabs{display:flex; flex-direction:column; gap:6px}
+.s-tab{all:unset; cursor:pointer; padding:14px 16px; border-radius:14px; border:1px solid transparent; display:flex; justify-content:space-between; align-items:center; gap:10px; color:var(--muted); font-weight:500; transition:.2s}
+.s-tab:hover{color:var(--text); background:var(--card)}
+.s-tab[aria-selected="true"]{color:var(--text); background:var(--card); border-color:var(--line2)}
+.s-tab[aria-selected="true"] .n{background:var(--accent); color:var(--accent-ink)}
+.s-tab:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.n{font:500 11px "JetBrains Mono",monospace; padding:2px 7px; border-radius:6px; background:var(--bg2)}
+.s-panel{padding:30px; min-height:280px}
+.s-panel h3{font-size:24px; margin-bottom:6px}
+.s-panel > p{color:var(--muted); margin:0 0 22px}
+.s-list{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px}
+.s-item{padding:14px 16px; border-radius:12px; background:var(--bg2); border:1px solid var(--line); font-weight:500; display:flex; align-items:center; gap:10px; animation:oin .35s both}
+.s-item::before{content:""; width:6px; height:6px; border-radius:2px; background:var(--accent); flex:none}
+
+/* Achievements */
+.ach{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:40px}
+.ach .card{padding:24px}
+.ach .k{font:500 11px "JetBrains Mono",monospace; color:var(--accent); text-transform:uppercase; letter-spacing:.08em}
+.ach h3{font-size:17px; margin:12px 0 8px; line-height:1.3}
+.ach p{color:var(--muted); font-size:14px; margin:0}
+
+/* Contact */
+.contact{padding:48px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center}
+.contact .h2{max-width:none}
+.c-list{display:grid; gap:10px}
+.c-row{display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:14px; background:var(--bg2); border:1px solid var(--line); text-decoration:none; transition:.2s}
+a.c-row:hover{border-color:var(--accent)}
+.c-row svg{width:18px; height:18px; color:var(--accent); flex:none}
+.c-row div{flex:1; min-width:0}
+.c-row small{display:block; font:500 11px "JetBrains Mono",monospace; color:var(--faint); text-transform:uppercase; letter-spacing:.08em}
+.c-row span{font-weight:500; overflow-wrap:anywhere}
+.copy{all:unset; cursor:pointer; font-size:13px; font-weight:600; padding:7px 12px; border-radius:9px; border:1px solid var(--line2)}
+.copy:hover{border-color:var(--accent)}
+.copy:focus-visible{outline:2px solid var(--accent)}
+footer{border-top:1px solid var(--line); padding:28px 0; color:var(--faint); font-size:14px}
+footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.toast{position:fixed; left:50%; bottom:24px; transform:translate(-50%,20px); background:var(--text); color:var(--bg); padding:11px 18px; border-radius:12px; font-weight:600; font-size:14px; opacity:0; pointer-events:none; transition:.3s; z-index:99}
+.toast.show{opacity:1; transform:translate(-50%,0)}
+.to-top{position:fixed; right:20px; bottom:20px; opacity:0; pointer-events:none; transition:.3s; z-index:40}
+.to-top.show{opacity:1; pointer-events:auto}
+
+@media (max-width:980px){
+  .about,.feat,.contact{grid-template-columns:1fr}
+  .ach{grid-template-columns:repeat(2,1fr)}
+  .skills{grid-template-columns:1fr}
+  .s-tabs{flex-direction:row; overflow-x:auto; padding-bottom:4px}
+  .s-tab{white-space:nowrap}
+  .phone-stage{order:-1}
+}
+@media (max-width:640px){
+  section{padding:72px 0}
+  .p-grid,.ach{grid-template-columns:1fr}
+  .feat,.contact{padding:24px 20px}
+  .steps{grid-template-columns:1fr}
+  .phone{width:220px; height:440px}
+  .stat b{font-size:36px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important; transition:none!important}
+  .reveal{opacity:1; transform:none}
+}
 </style>
+<script>
+  (function(){ var t=null; try{ t=localStorage.getItem("theme"); }catch(e){}
+    if(!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", t); })();
+</script>
 </head>
 <body>
-<nav aria-label="Sections">
-  <div class="wrap">
-    <a class="mark" href="#home">S.KUSHWAHA</a>
-    <ul>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <nav class="wrap nav" aria-label="Main">
+    <a class="logo" href="#home" id="logo"><i></i><span></span></a>
+    <ul class="links" id="links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -129,180 +275,420 @@ body{margin:0}
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </div>
-</nav>
-
-<header class="hero" id="home">
-  <div class="wrap">
-    <p class="kicker">B.Tech Electrical Engineering</p>
-    <h1>Shreyansh Kushwaha</h1>
-    <p class="role-line">CAD Design · Renewable Energy · Embedded Systems &amp; IoT. I build working prototypes and the engineering documentation behind them.</p>
-    <div class="hero-meta">
-      <span>Ayodhya, Uttar Pradesh, India</span>
-      <a href="#contact">shrewaha@gmail.com</a>
-      <a href="https://www.linkedin.com/in/shrewaha" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/shrewaha" target="_blank" rel="noopener">GitHub</a>
+    <div class="nav-r">
+      <button class="icon-btn" id="theme" aria-label="Switch colour theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="theme-ico"></svg></button>
+      <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
-  </div>
+  </nav>
+  <div class="progress" id="progress"></div>
 </header>
 
-<section class="cv" id="about">
-  <div class="wrap">
-    <div class="label">Profile</div>
-    <div>
-      <h2>Electrical engineering, built into real hardware.</h2>
-      <p>Electrical Engineering undergraduate with hands-on experience in CAD design, renewable-energy systems, embedded systems, IoT hardware and power electronics. Skilled in <strong>SolidWorks, MATLAB/Simulink, ESP8266/ESP32, Arduino</strong> and sensor-based automation.</p>
-      <p>Experienced in developing technical prototypes, preparing engineering documentation, and working on renewable-energy and IoT projects.</p>
-      <p><strong>Interests:</strong> renewable energy, microgrids, embedded IoT hardware, CAD and product design, engineering innovation programs.<br><strong>Languages:</strong> English, Hindi.</p>
-      <div class="facts">
-        <div><b>2028</b><span>Expected graduation</span></div>
-        <div><b>5th</b><span>Semester</span></div>
-        <div><b>4</b><span>Projects</span></div>
-      </div>
+<main id="main">
+  <section id="home"><div class="grid-bg"></div><div class="wrap hero"><div class="reveal" id="hero"></div></div></section>
+  <section id="about"><div class="wrap about" id="about-c"></div></section>
+  <section id="experience"><div class="wrap">
+    <div class="reveal" id="exp-head"></div>
+    <div class="timeline" id="timeline"><div class="tl-fill" id="tl-fill"></div><div id="tl-items"></div></div>
+  </div></section>
+  <section id="projects"><div class="wrap">
+    <div class="reveal" id="proj-head"></div>
+    <div class="filters reveal" role="group" aria-label="Filter projects" id="filters"></div>
+    <div class="p-grid" id="p-grid"></div>
+  </div></section>
+  <section id="skills"><div class="wrap">
+    <div class="reveal" id="skills-head"></div>
+    <div class="skills reveal">
+      <div class="s-tabs" role="tablist" aria-label="Skill categories" id="s-tabs"></div>
+      <div class="card s-panel spot" role="tabpanel" id="s-panel" aria-live="polite"></div>
     </div>
-  </div>
-</section>
+  </div></section>
+  <section id="achievements"><div class="wrap">
+    <div class="reveal" id="ach-head"></div>
+    <div class="ach" id="ach"></div>
+  </div></section>
+  <section id="contact"><div class="wrap"><div class="card contact spot reveal" id="contact-c"></div></div></section>
+</main>
 
-<section class="cv" id="experience">
-  <div class="wrap">
-    <div class="label">Experience &amp; Education</div>
-    <div class="entries">
-      <div class="entry">
-        <div class="when">Oct 2026 – Present</div>
-        <div>
-          <h3>Prototype Development &amp; Trainee Supervision</h3>
-          <p class="org">HOLM Energy</p>
-          <ul>
-            <li>Support development and review of engineering prototypes, including technical specifications, drawings and documentation.</li>
-            <li>Supervise and train students in prototype understanding, measurement, workshop processes and assembly.</li>
-            <li>Communicate with generator suppliers and report project progress to senior team members.</li>
-            <li>Explain 3D models, prepare training materials and help maintain performance-tracking formats.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="entry">
-        <div class="when">Summer 2026</div>
-        <div>
-          <h3>Summer Research Internship (Provisionally Shortlisted)</h3>
-          <p class="org">ABV-IIITM Gwalior</p>
-          <ul>
-            <li>Selected for a research-oriented summer internship under the supervision of Dr. Neelesh Yadav.</li>
-            <li>Focus areas: electrical systems, embedded/IoT applications and research-based engineering learning.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="entry">
-        <div class="when">Expected 2028</div>
-        <div>
-          <h3>B.Tech, Electrical Engineering</h3>
-          <p class="org">IET, Dr. Rammanohar Lohia Avadh University, Ayodhya</p>
-          <p>3rd year, 5th semester. Coursework: Electrical Machines, Power Electronics, Control Systems, Circuits, Electronics, Electromagnetics.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<footer><div class="wrap"><span id="f-left"></span><span id="f-right"></span></div></footer>
 
-<section class="cv" id="projects">
-  <div class="wrap">
-    <div class="label">Projects</div>
-    <div class="entries">
-      <div class="entry">
-        <div class="when">Key project</div>
-        <div>
-          <h3>Hybrid Vertical-Axis Wind Turbine with Solar and IoT Monitoring</h3>
-          <ul style="margin-top:10px">
-            <li>Designed a hybrid renewable-energy system combining a vertical-axis wind turbine with solar panels.</li>
-            <li>Developed IoT-based monitoring for current, voltage, wind speed, RPM and solar output.</li>
-            <li>Used embedded hardware and sensor integration to collect and analyse real-time performance data.</li>
-          </ul>
-          <ul class="tags"><li>Wind + Solar</li><li>Sensors</li><li>Embedded hardware</li><li>IoT</li></ul>
-        </div>
-      </div>
-      <div class="entry">
-        <div class="when">IoT</div>
-        <div>
-          <h3>Smart Irrigation Prototype Using ESP8266</h3>
-          <ul style="margin-top:10px">
-            <li>Developed an ESP8266-based system that uses sensors to monitor soil conditions and automate water-pump control.</li>
-            <li>Uploaded sensor data to ThingSpeak for remote monitoring and analysis.</li>
-          </ul>
-          <ul class="tags"><li>ESP8266</li><li>ThingSpeak</li><li>Automation</li></ul>
-        </div>
-      </div>
-      <div class="entry">
-        <div class="when">Research</div>
-        <div>
-          <h3>DC-DC Converter Research Project</h3>
-          <p style="margin-top:10px">Studied and worked on DC-DC converter design and performance for power-electronics applications.</p>
-          <ul class="tags"><li>Power electronics</li><li>MATLAB / Simulink</li></ul>
-        </div>
-      </div>
-      <div class="entry">
-        <div class="when">Social impact</div>
-        <div>
-          <h3>Poshan Setu 2.0</h3>
-          <p style="margin-top:10px">Contributed to an anticipatory nutrition early-warning and action platform.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<button class="icon-btn to-top" id="to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
+<div class="toast" id="toast" role="status"></div>
 
-<section class="cv" id="skills">
-  <div class="wrap">
-    <div class="label">Skills</div>
-    <div class="skills">
-      <div><h4>CAD &amp; Design</h4><ul><li>SolidWorks</li><li>CATIA</li><li>Engineering drawings</li><li>3D modeling</li><li>Mechanical design</li></ul></div>
-      <div><h4>Electrical &amp; Power</h4><ul><li>Power electronics</li><li>DC-DC converters</li><li>Electrical machines</li><li>Circuit analysis</li></ul></div>
-      <div><h4>Embedded &amp; IoT</h4><ul><li>ESP8266 &amp; ESP32</li><li>Arduino</li><li>Raspberry Pi</li><li>Sensors</li><li>ThingSpeak</li></ul></div>
-      <div><h4>Software</h4><ul><li>MATLAB</li><li>Simulink</li><li>Technical documentation</li><li>Presentations</li></ul></div>
-      <div><h4>Other</h4><ul><li>Prototype debugging</li><li>Renewable-energy systems</li><li>Project reporting</li><li>Teamwork</li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section class="cv" id="achievements">
-  <div class="wrap">
-    <div class="label">Achievements</div>
-    <ul class="list">
-      <li><div>Provisionally shortlisted for the Summer Research Internship</div><span>ABV-IIITM Gwalior · 2026</span></li>
-      <li><div>Participated in the Tech Innovation Challenge</div><span>IIT Kanpur</span></li>
-      <li><div>Engineering innovation and hackathon activities, including work related to the Smart India Hackathon</div><span>SIH</span></li>
-      <li><div>Volunteered in a three-day training program, supporting coordination, teamwork, communication and organisation</div><span>Volunteering</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="label">Contact</div>
-    <div>
-      <h2>Let's work together.</h2>
-      <p>Open to CAD internships, renewable-energy R&amp;D, embedded-systems projects and research opportunities.</p>
-      <div class="rows">
-        <div class="row"><small>Email</small><span class="v" id="email">shrewaha@gmail.com</span><button type="button" id="copy-email" class="copy">Copy</button></div>
-        <div class="row"><small>LinkedIn</small><span class="v"><a href="https://www.linkedin.com/in/shrewaha" target="_blank" rel="noopener">linkedin.com/in/shrewaha</a></span><span></span></div>
-        <div class="row"><small>GitHub</small><span class="v"><a href="https://github.com/shrewaha" target="_blank" rel="noopener">github.com/shrewaha</a></span><span></span></div>
-        <div class="row"><small>Location</small><span class="v">Ayodhya, Uttar Pradesh, India</span><span></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <span>© 2026 Shreyansh Kushwaha</span>
-    <span>CAD · Renewable Energy · Embedded Systems &amp; IoT</span>
-  </div>
-</footer>
+<!-- Fallback copy of content.json, used only if content.json can't be loaded. Edit your site from /admin.html instead. -->
+<script type="application/json" id="default-content">{"profile": {"eyebrow": "B.Tech Electrical Engineering", "name": "Shreyansh Kushwaha", "rolesPrefix": "I build", "roles": ["working prototypes", "wind + solar systems", "IoT monitoring hardware", "CAD models in SolidWorks", "apps that solve local problems"], "tagline": "CAD Design · Renewable Energy · Embedded Systems & IoT. I build working prototypes and the engineering documentation behind them.", "location": "Ayodhya, Uttar Pradesh, India", "email": "shrewaha@gmail.com", "linkedin": "https://www.linkedin.com/in/shrewaha", "github": "https://github.com/shrewaha", "primaryCta": "View projects", "secondaryCta": "Get in touch"}, "about": {"eyebrow": "Profile", "heading": "Electrical engineering, built into real hardware.", "lead": "I work hands-on across CAD, renewable energy, embedded systems, IoT and power electronics — using SolidWorks, MATLAB/Simulink, ESP8266/ESP32, Arduino and sensor-based automation to take ideas from a model to a working prototype.", "interests": ["Renewable energy", "Microgrids", "Embedded IoT hardware", "CAD & product design", "Engineering innovation programs"], "languages": ["English", "Hindi"], "stats": [{"value": 2028, "suffix": "", "label": "Expected graduation"}, {"value": 5, "suffix": "th", "label": "Semester, B.Tech EE"}, {"value": 5, "suffix": "", "label": "Projects built & documented"}]}, "sections": {"experience": {"eyebrow": "Experience & Education", "heading": "Where I've been building."}, "projects": {"eyebrow": "Projects", "heading": "Things I've designed and built."}, "skills": {"eyebrow": "Skills", "heading": "Toolkit."}, "achievements": {"eyebrow": "Achievements", "heading": "Recognition & activities."}}, "experience": [{"title": "Prototype Development & Trainee Supervision", "badge": "", "when": "Oct 2026 — Present", "org": "HOLM Energy", "summary": "Supporting prototype development end to end, from specifications to supplier coordination, while supervising trainee students.", "detailsLabel": "Responsibilities", "detailsStyle": "list", "details": ["Prepare prototype specifications and technical documentation", "Supervise trainee students and prepare training materials", "Liaise with generator suppliers and report progress", "Explain 3D models to the team and stakeholders"]}, {"title": "Summer Research Internship", "badge": "Provisionally shortlisted", "when": "Summer 2026", "org": "ABV-IIITM Gwalior", "summary": "Research internship under Dr. Neelesh Yadav, focused on electrical systems, embedded/IoT and research-based learning.", "detailsLabel": "", "detailsStyle": "list", "details": []}, {"title": "B.Tech, Electrical Engineering", "badge": "", "when": "Expected 2028", "org": "IET, Dr. Rammanohar Lohia Avadh University, Ayodhya", "summary": "Currently in 3rd year, 5th semester.", "detailsLabel": "Coursework", "detailsStyle": "chips", "details": ["Electrical Machines", "Power Electronics", "Control Systems", "Circuits", "Electronics", "Electromagnetics"]}], "filters": [{"id": "energy", "label": "Renewable energy"}, {"id": "iot", "label": "Embedded & IoT"}, {"id": "power", "label": "Power electronics"}, {"id": "software", "label": "Software"}], "projects": [{"title": "Hybrid Vertical-Axis Wind Turbine with Solar & IoT Monitoring", "badge": "Key project", "icon": "wind", "layout": "normal", "demo": "none", "description": "A vertical-axis wind turbine combined with solar panels, with IoT monitoring of current, voltage, wind speed, RPM and solar output.", "chips": ["Wind + Solar", "Sensors", "Embedded hardware", "IoT"], "tags": ["energy", "iot"], "links": []}, {"title": "Smart Irrigation Prototype Using ESP8266", "badge": "", "icon": "drop", "layout": "normal", "demo": "none", "description": "Sensor-based soil monitoring with automated pump control. Readings are uploaded to ThingSpeak for remote tracking.", "chips": ["ESP8266", "ThingSpeak", "Automation"], "tags": ["iot"], "links": []}, {"title": "HyperLocal Student Marketplace", "badge": "Live app · v1.0.0", "icon": "code", "layout": "wide", "demo": "hyperlocal", "description": "Students post what they need. Nearby shops reply with offers. The app lines them up side by side so the best price is obvious.", "chips": ["Python · FastAPI", "SQLite", "JavaFX", "REST API", "Android APK"], "tags": ["software"], "links": []}, {"title": "DC-DC Converter Research Project", "badge": "", "icon": "bolt", "layout": "normal", "demo": "none", "description": "Design and performance study of DC-DC converters, modelled and analysed in MATLAB/Simulink.", "chips": ["Power electronics", "MATLAB / Simulink"], "tags": ["power"], "links": []}, {"title": "Poshan Setu 2.0", "badge": "Social impact", "icon": "heart", "layout": "normal", "demo": "none", "description": "Contributed to an anticipatory nutrition early-warning and action platform.", "chips": ["Early warning", "Social impact"], "tags": ["software"], "links": []}], "hyperlocal": {"web": "https://shrewaha.github.io/hyperlocal-student-marketplace/", "android": "https://github.com/shrewaha/hyperlocal-student-marketplace/releases/latest", "windows": "https://github.com/shrewaha/hyperlocal-student-marketplace/releases/latest", "macos": "https://github.com/shrewaha/hyperlocal-student-marketplace/releases/latest", "linux": "https://github.com/shrewaha/hyperlocal-student-marketplace/releases/latest", "steps": [{"title": "Post a need", "text": "A student describes the item, budget and pickup area — the request goes out to nearby shops."}, {"title": "Shops offer", "text": "Local shops see the request on their side of the app and reply with price and availability."}, {"title": "Compare & pick", "text": "Offers are ranked side by side, so the student picks the best deal and goes to collect it."}]}, "skills": [{"name": "CAD & Design", "blurb": "From concept sketches to manufacturable 3D models and drawings.", "items": ["SolidWorks", "CATIA", "Engineering drawings", "3D modeling", "Mechanical design"]}, {"name": "Electrical & Power", "blurb": "The core electrical engineering behind every prototype.", "items": ["Power electronics", "DC-DC converters", "Electrical machines", "Circuit analysis"]}, {"name": "Embedded & IoT", "blurb": "Microcontrollers, sensors and cloud dashboards that report from the field.", "items": ["ESP8266 & ESP32", "Arduino", "Raspberry Pi", "Sensors", "ThingSpeak"]}, {"name": "Software", "blurb": "Simulation, analysis and the documentation that goes with it.", "items": ["MATLAB", "Simulink", "Python · FastAPI", "Technical documentation", "Presentations"]}, {"name": "Other", "blurb": "How the work actually gets done.", "items": ["Prototype debugging", "Renewable-energy systems", "Project reporting", "Teamwork"]}], "achievements": [{"label": "ABV-IIITM Gwalior · 2026", "title": "Provisionally shortlisted for Summer Research Internship", "text": "Selected for research under Dr. Neelesh Yadav."}, {"label": "IIT Kanpur", "title": "Tech Innovation Challenge", "text": "Participated in the innovation challenge."}, {"label": "SIH", "title": "Smart India Hackathon & innovation work", "text": "Engineering innovation and hackathon activities."}, {"label": "Volunteering", "title": "Three-day training program", "text": "Volunteered in a three-day training program."}], "contact": {"eyebrow": "Contact", "heading": "Let's work together.", "lead": "Open to CAD internships, renewable-energy R&D, embedded-systems projects and research opportunities."}, "footer": {"left": "© 2026 Shreyansh Kushwaha", "right": "CAD · Renewable Energy · Embedded Systems & IoT"}}</script>
 
 <script>
-document.getElementById('copy-email').addEventListener('click',function(){
-  var b=this,el=document.getElementById('email');
-  function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
-  try{navigator.clipboard.writeText(el.textContent).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)},sel)}catch(e){sel()}
-});
+(() => {
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const root = document.documentElement;
+  const PREVIEW = new URLSearchParams(location.search).has("preview");
+  if (PREVIEW) document.body.classList.add("preview");
+
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const url = u => { u = String(u || "").trim(); return /^(https?:|mailto:|tel:|#|\/)/i.test(u) ? esc(u) : (u ? "https://" + esc(u.replace(/^\/+/, "")) : "#"); };
+  const arr = a => Array.isArray(a) ? a : [];
+  const chips = a => arr(a).filter(Boolean).map(x => `<span class="chip">${esc(x)}</span>`).join("");
+  const head = s => `<p class="eyebrow">${esc(s?.eyebrow)}</p><h2 class="h2">${esc(s?.heading)}</h2>`;
+
+  const I = {
+    pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+    mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+    li:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5Z"/></svg>',
+    gh:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.8 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg>',
+    arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>',
+    ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>',
+    down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>',
+    chev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>',
+    sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>'
+  };
+  const PICON = {
+    wind:'<path d="M12 12V22M12 12c4-3 4-8 0-10M12 12c-4-3-4-8 0-10M8 22h8"/>',
+    drop:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/>',
+    bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>',
+    heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8Z"/>',
+    code:'<path d="m8 8-5 4 5 4m8-8 5 4-5 4M14 4l-4 16"/>',
+    cpu:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/>',
+    sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    cube:'<path d="m12 2 9 5v10l-9 5-9-5V7l9-5Z"/><path d="m3 7 9 5 9-5M12 12v10"/>',
+    chart:'<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',
+    flask:'<path d="M9 3h6M10 3v6L4 19a1.5 1.5 0 0 0 1.3 2h13.4A1.5 1.5 0 0 0 20 19l-6-10V3"/>'
+  };
+  const picon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${PICON[k] || PICON.cube}</svg>`;
+
+  let C = null, typedTimer = null, stepTimer = null, stepCur = 0;
+
+  /* ---------- Toast ---------- */
+  let toastT;
+  const toast = m => { const t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("show"),1800); };
+
+  /* ---------- Render ---------- */
+  function render(c){
+    C = c || {};
+    const p = C.profile || {}, a = C.about || {}, S = C.sections || {};
+    clearTimeout(typedTimer); clearInterval(stepTimer);
+
+    const nm = String(p.name || "").trim();
+    const parts = nm.split(/\s+/);
+    $("#logo span").textContent = parts.length > 1 ? (parts[0][0] + "." + parts.slice(1).join(" ")) : nm;
+    if (nm) document.title = nm + " — Electrical Engineer";
+
+    const roles = arr(p.roles).filter(Boolean);
+    $("#hero").innerHTML = `
+      <p class="eyebrow">${esc(p.eyebrow)}</p>
+      <h1>${parts.length > 1 ? esc(parts[0]) + "<br>" + esc(parts.slice(1).join(" ")) : esc(nm)}</h1>
+      ${roles.length ? `<p class="typed">${esc(p.rolesPrefix)} <b id="typed">${esc(roles[0])}</b></p>` : ""}
+      <p class="tag">${esc(p.tagline)}</p>
+      ${p.location ? `<div class="loc">${I.pin}${esc(p.location)}</div>` : ""}
+      <div class="hero-ctas">
+        <a class="btn primary" href="#projects">${esc(p.primaryCta || "View projects")} ${I.arrow}</a>
+        <a class="btn" href="#contact">${esc(p.secondaryCta || "Get in touch")}</a>
+      </div>
+      <div class="socials">
+        ${p.email ? `<a href="mailto:${esc(p.email)}" aria-label="Email">${I.mail}</a>` : ""}
+        ${p.linkedin ? `<a href="${url(p.linkedin)}" target="_blank" rel="noopener" aria-label="LinkedIn">${I.li}</a>` : ""}
+        ${p.github ? `<a href="${url(p.github)}" target="_blank" rel="noopener" aria-label="GitHub">${I.gh}</a>` : ""}
+      </div>`;
+
+    $("#about-c").innerHTML = `
+      <div class="reveal">
+        <p class="eyebrow">${esc(a.eyebrow)}</p>
+        <h2 class="h2">${esc(a.heading)}</h2>
+        <p class="lead">${esc(a.lead)}</p>
+        <div class="about-meta">
+          ${arr(a.interests).length ? `<div><h4>Interests</h4><div class="chips">${chips(a.interests)}</div></div>` : ""}
+          ${arr(a.languages).length ? `<div><h4>Languages</h4><div class="chips">${chips(a.languages)}</div></div>` : ""}
+        </div>
+      </div>
+      <div class="stats">${arr(a.stats).map(s => {
+        const n = Number(s.value), num = Number.isFinite(n) && String(s.value).trim() !== "";
+        return `<div class="card stat spot reveal"><b ${num ? `data-count="${n}" data-suffix="${esc(s.suffix)}"` : ""}>${num ? (PREVIEW ? n + esc(s.suffix) : 0) : esc(s.value) + esc(s.suffix)}</b><span>${esc(s.label)}</span></div>`;
+      }).join("")}</div>`;
+
+    $("#exp-head").innerHTML = head(S.experience);
+    $("#tl-items").innerHTML = arr(C.experience).map(e => {
+      const d = arr(e.details).filter(Boolean);
+      return `<div class="tl-item reveal"><div class="card tl-card spot">
+        <div class="tl-top"><h3>${esc(e.title)}${e.badge ? ` <span class="chip">${esc(e.badge)}</span>` : ""}</h3><span class="when">${esc(e.when)}</span></div>
+        ${e.org ? `<div class="org">${esc(e.org)}</div>` : ""}
+        ${e.summary ? `<p>${esc(e.summary)}</p>` : ""}
+        ${d.length ? `<button class="tl-more" aria-expanded="false">${esc(e.detailsLabel || "Details")} ${I.chev}</button>
+          <div class="tl-body"><div>${e.detailsStyle === "chips" ? `<div class="chips">${chips(d)}</div>` : `<ul>${d.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`}</div></div>` : ""}
+      </div></div>`;
+    }).join("");
+
+    $("#proj-head").innerHTML = head(S.projects);
+    const filters = arr(C.filters).filter(f => f && f.id);
+    $("#filters").innerHTML = filters.length ? `<button class="filter" aria-pressed="true" data-f="all">All</button>` +
+      filters.map(f => `<button class="filter" aria-pressed="false" data-f="${esc(f.id)}">${esc(f.label || f.id)}</button>`).join("") : "";
+    $("#p-grid").innerHTML = arr(C.projects).map(pr => pr.demo === "hyperlocal" ? featured(pr) : project(pr)).join("");
+
+    $("#skills-head").innerHTML = head(S.skills);
+    const sk = arr(C.skills);
+    $("#s-tabs").innerHTML = sk.map((s,i) => `<button class="s-tab" role="tab" id="st-${i}" data-i="${i}" aria-controls="s-panel" aria-selected="${i===0}" tabindex="${i===0?0:-1}">${esc(s.name)}<span class="n">${arr(s.items).filter(Boolean).length}</span></button>`).join("");
+    showSkill(0);
+
+    $("#ach-head").innerHTML = head(S.achievements);
+    $("#ach").innerHTML = arr(C.achievements).map(x => `<div class="card spot reveal"><span class="k">${esc(x.label)}</span><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></div>`).join("");
+
+    const ct = C.contact || {};
+    $("#contact-c").innerHTML = `
+      <div><p class="eyebrow">${esc(ct.eyebrow)}</p><h2 class="h2">${esc(ct.heading)}</h2><p class="lead">${esc(ct.lead)}</p></div>
+      <div class="c-list">
+        ${p.email ? `<div class="c-row">${I.mail}<div><small>Email</small><a href="mailto:${esc(p.email)}" style="text-decoration:none"><span>${esc(p.email)}</span></a></div><button class="copy" id="copy">Copy</button></div>` : ""}
+        ${p.linkedin ? `<a class="c-row" href="${url(p.linkedin)}" target="_blank" rel="noopener">${I.li}<div><small>LinkedIn</small><span>${esc(String(p.linkedin).replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""))}</span></div></a>` : ""}
+        ${p.github ? `<a class="c-row" href="${url(p.github)}" target="_blank" rel="noopener">${I.gh}<div><small>GitHub</small><span>${esc(String(p.github).replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""))}</span></div></a>` : ""}
+        ${p.location ? `<div class="c-row">${I.pin}<div><small>Location</small><span>${esc(p.location)}</span></div></div>` : ""}
+      </div>`;
+
+    $("#f-left").textContent = C.footer?.left || "";
+    $("#f-right").textContent = C.footer?.right || "";
+
+    observeReveals();
+    startTyped(roles);
+    initStepper();
+    onScroll();
+  }
+
+  function links(pr){
+    const l = arr(pr.links).filter(x => x && x.url);
+    return l.length ? `<div class="p-links">${l.map((x,i) => `<a class="btn sm${i===0?" primary":""}" href="${url(x.url)}" target="_blank" rel="noopener">${esc(x.label || "Open")} ${I.ext}</a>`).join("")}</div>` : "";
+  }
+  function project(pr){
+    return `<article class="card proj spot reveal${pr.layout === "wide" ? " wide" : ""}" data-tags="${esc(arr(pr.tags).join(" "))}">
+      ${pr.badge ? `<span class="p-badge">${esc(pr.badge)}</span>` : ""}
+      <div class="p-icon">${picon(pr.icon)}</div>
+      <h3>${esc(pr.title)}</h3>
+      <p>${esc(pr.description)}</p>
+      <div class="chips">${chips(pr.chips)}</div>
+      ${links(pr)}
+    </article>`;
+  }
+  function featured(pr){
+    const h = C.hyperlocal || {}, steps = arr(h.steps).slice(0, 3);
+    return `<article class="card proj feat wide spot reveal" data-tags="${esc(arr(pr.tags).join(" "))}">
+      <div>
+        ${pr.badge ? `<span class="p-badge">${esc(pr.badge)}</span>` : ""}
+        <h3>${esc(pr.title)}</h3>
+        <p>${esc(pr.description)}</p>
+        ${steps.length ? `<div class="steps" role="tablist" aria-label="How it works">${steps.map((s,i) => `<button class="step" role="tab" data-i="${i}" aria-selected="${i===0}"><b>0${i+1}</b><span>${esc(s.title)}</span></button>`).join("")}</div>
+        <p class="step-desc" id="step-desc" aria-live="polite"></p>` : ""}
+        <div class="chips">${chips(pr.chips)}</div>
+        <div class="feat-ctas">
+          ${h.web ? `<a class="btn primary" href="${url(h.web)}" target="_blank" rel="noopener">Open web app ${I.ext}</a>` : ""}
+          <div class="dl">
+            <button class="btn" id="dl-btn" aria-haspopup="true" aria-expanded="false" aria-controls="dl-menu">${I.down}<span id="dl-label">Download app</span></button>
+            <div class="dl-menu" id="dl-menu" role="menu"></div>
+          </div>
+          ${links(pr).replace('<div class="p-links">','').replace(/<\/div>$/,'')}
+        </div>
+      </div>
+      <div class="phone-stage" aria-hidden="true"><div class="phone"><div class="screen"><div class="notch"></div>
+        <div class="view active"><div class="app-h">New request</div>
+          <div class="fld"><small>What do you need?</small>Scientific calculator (fx-991)</div>
+          <div class="fld"><small>Budget</small>Under ₹1,200</div>
+          <div class="fld"><small>Pickup near</small>Campus gate · 2 km</div>
+          <span class="pill">Visible to 14 nearby shops</span><div class="fbtn">Post request</div></div>
+        <div class="view"><div class="app-h">Offers coming in</div>
+          <div class="offer"><div><b>Gupta Stationers</b><br><small>0.6 km · in stock</small></div><span class="price">₹1,050</span></div>
+          <div class="offer"><div><b>Campus Books</b><br><small>0.2 km · in stock</small></div><span class="price">₹1,120</span></div>
+          <div class="offer"><div><b>City Electronics</b><br><small>1.8 km · tomorrow</small></div><span class="price">₹990</span></div></div>
+        <div class="view"><div class="app-h">Compare</div>
+          <div class="offer best"><div style="flex:1"><b>City Electronics</b> <span class="pill">Best</span><div class="bar"><i style="width:82%"></i></div></div><span class="price" style="margin-left:8px">₹990</span></div>
+          <div class="offer"><div style="flex:1"><b>Gupta Stationers</b><div class="bar"><i style="width:88%"></i></div></div><span class="price" style="margin-left:8px">₹1,050</span></div>
+          <div class="offer"><div style="flex:1"><b>Campus Books</b><div class="bar"><i style="width:94%"></i></div></div><span class="price" style="margin-left:8px">₹1,120</span></div>
+          <div class="fbtn">Accept offer · save ₹130</div></div>
+      </div></div></div>
+    </article>`;
+  }
+
+  /* ---------- Reveal + count-up ---------- */
+  const countUp = el => {
+    const end = +el.dataset.count, suf = el.dataset.suffix || "";
+    if (reduce || PREVIEW) { el.textContent = end + suf; return; }
+    const start = end > 1000 ? end - 30 : 0, t0 = performance.now(), dur = 1100;
+    const step = t => { const k = Math.min(1,(t-t0)/dur), e = 1 - Math.pow(1-k,3);
+      el.textContent = Math.round(start + (end-start)*e) + suf; if (k<1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add("in");
+    $$("[data-count]", e.target).forEach(countUp);
+    io.unobserve(e.target);
+  }), {threshold:.15});
+  function observeReveals(){
+    $$(".reveal:not(.in), .tl-item:not(.in)").forEach((el,i) => {
+      if (PREVIEW) { el.classList.add("in"); $$("[data-count]", el).forEach(countUp); return; }
+      el.style.transitionDelay = (i % 4) * 60 + "ms"; io.observe(el);
+    });
+  }
+
+  /* ---------- Typed roles ---------- */
+  function startTyped(roles){
+    const el = $("#typed");
+    if (!el || reduce || roles.length < 2) return;
+    let ri = 0, ci = roles[0].length, del = true;
+    const tick = () => {
+      if (!document.body.contains(el)) return;
+      ci += del ? -1 : 1; el.textContent = roles[ri].slice(0, ci);
+      let wait = del ? 35 : 65;
+      if (del && ci <= 0) { del = false; ri = (ri+1) % roles.length; wait = 300; }
+      else if (!del && ci >= roles[ri].length) { del = true; wait = 2000; }
+      typedTimer = setTimeout(tick, wait);
+    };
+    typedTimer = setTimeout(tick, 2200);
+  }
+
+  /* ---------- HyperLocal stepper + downloads ---------- */
+  function showStep(i){
+    const steps = $$(".step"), views = $$(".view"), h = C.hyperlocal || {};
+    if (!steps.length) return;
+    stepCur = i;
+    steps.forEach((s,j) => s.setAttribute("aria-selected", j===i));
+    views.forEach((v,j) => { v.classList.toggle("active", j===i);
+      if (j===i) $$(".offer", v).forEach(o => { o.style.animation="none"; void o.offsetHeight; o.style.animation=""; }); });
+    const d = $("#step-desc"); if (d) d.textContent = arr(h.steps)[i]?.text || "";
+  }
+  function autoStep(){
+    clearInterval(stepTimer);
+    const n = $$(".step").length;
+    if (!reduce && n > 1) stepTimer = setInterval(() => showStep((stepCur+1) % n), 4200);
+  }
+  const P = [{id:"android",name:"Android",note:".apk"},{id:"windows",name:"Windows",note:"installer"},{id:"macos",name:"macOS",note:".dmg"},{id:"linux",name:"Linux",note:"package"}];
+  const ua = navigator.userAgent;
+  const os = /Android/i.test(ua) ? "android" : /Win/i.test(ua) ? "windows" : (/Mac/i.test(ua) && !/iPhone|iPad/i.test(ua)) ? "macos" : /Linux/i.test(ua) ? "linux" : null;
+  function initStepper(){
+    stepCur = 0; showStep(0); autoStep();
+    const menu = $("#dl-menu"), h = C.hyperlocal || {};
+    if (!menu) return;
+    const avail = P.filter(p => h[p.id]);
+    if (!avail.length) { $(".dl").remove(); return; }
+    const mine = avail.find(p => p.id === os);
+    if (mine) $("#dl-label").textContent = "Download for " + mine.name;
+    menu.innerHTML = [...avail].sort((a,b) => (b.id===os)-(a.id===os)).map(p =>
+      `<a role="menuitem" href="${url(h[p.id])}" target="_blank" rel="noopener">${p.name}${p.id===os?" ✓":""} <small>${p.note}</small></a>`).join("");
+  }
+  const toggleMenu = o => { const m=$("#dl-menu"), b=$("#dl-btn"); if(!m) return; m.classList.toggle("open", o); b.setAttribute("aria-expanded", o); if (o) m.querySelector("a")?.focus(); };
+
+  /* ---------- Skills ---------- */
+  function showSkill(i){
+    const sk = arr(C.skills), panel = $("#s-panel");
+    if (!sk.length) { panel.innerHTML = ""; return; }
+    $$(".s-tab").forEach((b,j) => { b.setAttribute("aria-selected", j===i); b.tabIndex = j===i ? 0 : -1; });
+    panel.setAttribute("aria-labelledby", "st-"+i);
+    const s = sk[i];
+    panel.innerHTML = `<h3>${esc(s.name)}</h3><p>${esc(s.blurb)}</p><div class="s-list">${arr(s.items).filter(Boolean).map((x,k) => `<div class="s-item" style="animation-delay:${k*50}ms">${esc(x)}</div>`).join("")}</div>`;
+  }
+
+  /* ---------- Delegated interactions (bound once) ---------- */
+  document.addEventListener("click", e => {
+    const t = e.target;
+    const f = t.closest(".filter");
+    if (f) {
+      $$(".filter").forEach(x => x.setAttribute("aria-pressed", x === f));
+      const tag = f.dataset.f;
+      $$("#p-grid .proj").forEach(c => {
+        const show = tag === "all" || c.dataset.tags.split(" ").includes(tag);
+        if (show) { c.classList.remove("hide"); requestAnimationFrame(() => c.classList.remove("fading")); }
+        else { c.classList.add("fading"); setTimeout(() => c.classList.contains("fading") && c.classList.add("hide"), reduce ? 0 : 300); }
+      });
+      return;
+    }
+    const more = t.closest(".tl-more");
+    if (more) { const o = more.nextElementSibling.classList.toggle("open"); more.setAttribute("aria-expanded", o); return; }
+    const st = t.closest(".step");
+    if (st) { showStep(+st.dataset.i); autoStep(); return; }
+    const sk = t.closest(".s-tab");
+    if (sk) { showSkill(+sk.dataset.i); return; }
+    if (t.closest("#copy")) {
+      const em = C.profile?.email || "";
+      (navigator.clipboard?.writeText(em) || Promise.reject()).then(() => toast("Email copied"), () => toast(em));
+      return;
+    }
+    if (t.closest("#dl-btn")) { e.stopPropagation(); toggleMenu(!$("#dl-menu").classList.contains("open")); return; }
+    if (!t.closest("#dl-menu")) toggleMenu(false);
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && $("#dl-menu")?.classList.contains("open")) { toggleMenu(false); $("#dl-btn").focus(); return; }
+    const st = e.target.closest?.(".step");
+    if (st && (e.key==="ArrowRight"||e.key==="ArrowLeft")) {
+      const all = $$(".step"), i = +st.dataset.i, n = (i + (e.key==="ArrowRight" ? 1 : all.length-1)) % all.length;
+      all[n].focus(); showStep(n); autoStep(); return;
+    }
+    const sk = e.target.closest?.(".s-tab");
+    if (sk) {
+      const all = $$(".s-tab"), i = +sk.dataset.i; let n = null;
+      if (e.key==="ArrowDown"||e.key==="ArrowRight") n = (i+1) % all.length;
+      if (e.key==="ArrowUp"||e.key==="ArrowLeft") n = (i-1+all.length) % all.length;
+      if (n !== null) { e.preventDefault(); all[n].focus(); showSkill(n); }
+    }
+  });
+  document.addEventListener("pointermove", e => {
+    const c = e.target.closest?.(".spot"); if (!c) return;
+    const r = c.getBoundingClientRect();
+    c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    c.style.setProperty("--my", (e.clientY - r.top) + "px");
+  });
+  document.addEventListener("mouseover", e => { if (e.target.closest?.(".feat")) clearInterval(stepTimer); });
+  document.addEventListener("mouseout", e => { const f = e.target.closest?.(".feat"); if (f && !f.contains(e.relatedTarget)) autoStep(); });
+
+  /* ---------- Theme ---------- */
+  const setIcon = () => { $("#theme-ico").innerHTML = root.dataset.theme === "light" ? I.moon : I.sun; };
+  setIcon();
+  $("#theme").addEventListener("click", () => {
+    root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch(e){}
+    setIcon();
+  });
+
+  /* ---------- Mobile menu ---------- */
+  const lk = $("#links"), mb = $("#menu-btn");
+  mb.addEventListener("click", () => { const o = lk.classList.toggle("open"); mb.setAttribute("aria-expanded", o); });
+  $$("#links a").forEach(a => a.addEventListener("click", () => { lk.classList.remove("open"); mb.setAttribute("aria-expanded", false); }));
+
+  /* ---------- Scroll ---------- */
+  const sections = $$("main section[id]");
+  const navMap = Object.fromEntries($$("#links a").map(a => [a.getAttribute("href").slice(1), a]));
+  function onScroll(){
+    const h = document.documentElement;
+    $("#progress").style.transform = `scaleX(${h.scrollTop / (h.scrollHeight - h.clientHeight || 1)})`;
+    $("#to-top").classList.toggle("show", h.scrollTop > 700);
+    let cur = null;
+    sections.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * .4) cur = s.id; });
+    Object.entries(navMap).forEach(([id,a]) => a.classList.toggle("active", id === cur));
+    const tl = $("#timeline"), r = tl.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight * .6 - r.top) / (r.height || 1)));
+    $("#tl-fill").style.height = Math.max(0, p * (r.height - 16)) + "px";
+  }
+  addEventListener("scroll", onScroll, {passive:true});
+  $("#to-top").addEventListener("click", () => scrollTo({top:0, behavior: reduce ? "auto" : "smooth"}));
+
+  /* ---------- Load content ---------- */
+  let FALLBACK = {};
+  try { FALLBACK = JSON.parse($("#default-content").textContent); } catch(e) {}
+
+  if (PREVIEW) {
+    // Live preview inside the admin editor
+    render(FALLBACK);
+    addEventListener("message", e => {
+      if (e.source !== parent) return;
+      if (location.protocol !== "file:" && e.origin !== location.origin) return;
+      const d = e.data || {};
+      if (d.type === "portfolio-preview" && d.content) render(d.content);
+      if (d.type === "portfolio-scroll" && d.id) document.getElementById(d.id)?.scrollIntoView({block:"start"});
+    });
+    parent.postMessage({type:"portfolio-preview-ready"}, "*");
+  } else {
+    fetch("content.json?t=" + Date.now(), {cache:"no-store"})
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(render, () => render(FALLBACK));
+  }
+})();
 </script>
 </body>
 </html>
