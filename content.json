@@ -152,23 +152,6 @@
       "links": []
     },
     {
-      "title": "Smart Irrigation Prototype Using ESP8266",
-      "badge": "",
-      "icon": "drop",
-      "layout": "normal",
-      "demo": "none",
-      "description": "Sensor-based soil monitoring with automated pump control. Readings are uploaded to ThingSpeak for remote tracking.",
-      "chips": [
-        "ESP8266",
-        "ThingSpeak",
-        "Automation"
-      ],
-      "tags": [
-        "iot"
-      ],
-      "links": []
-    },
-    {
       "title": "HyperLocal Student Marketplace",
       "badge": "Live app · v1.0.0",
       "icon": "code",
@@ -204,6 +187,23 @@
       "links": []
     },
     {
+      "title": "Smart Irrigation Prototype Using ESP8266",
+      "badge": "",
+      "icon": "drop",
+      "layout": "normal",
+      "demo": "none",
+      "description": "Sensor-based soil monitoring with automated pump control. Readings are uploaded to ThingSpeak for remote tracking.",
+      "chips": [
+        "ESP8266",
+        "ThingSpeak",
+        "Automation"
+      ],
+      "tags": [
+        "iot"
+      ],
+      "links": []
+    },
+    {
       "title": "Poshan Setu 2.0",
       "badge": "Social impact",
       "icon": "heart",
@@ -217,6 +217,17 @@
       "tags": [
         "software"
       ],
+      "links": []
+    },
+    {
+      "title": "New project",
+      "badge": "",
+      "icon": "cube",
+      "layout": "normal",
+      "demo": "none",
+      "description": "",
+      "chips": [],
+      "tags": [],
       "links": []
     }
   ],
