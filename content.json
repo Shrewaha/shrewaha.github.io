@@ -2,7 +2,7 @@
   "profile": {
     "eyebrow": "B.Tech Electrical Engineering",
     "name": "Shreyansh Kushwaha",
-    "photo": "",
+    "photo": "assets/profile.jpg",
     "photoBadge": "Open to internships",
     "rolesPrefix": "I build",
     "roles": [
@@ -18,7 +18,8 @@
     "linkedin": "https://www.linkedin.com/in/shrewaha",
     "github": "https://github.com/shrewaha",
     "primaryCta": "View projects",
-    "secondaryCta": "Get in touch"
+    "secondaryCta": "Get in touch",
+    "photoAlt": "Shreyansh Kushwaha in a white blazer"
   },
   "about": {
     "eyebrow": "Profile",
