@@ -139,6 +139,12 @@ code{font-family:"JetBrains Mono",monospace; font-size:12.5px; background:var(--
 .cols{display:grid; grid-template-columns:1fr 1fr; gap:0 12px}
 .cols .f.full{grid-column:1/-1}
 
+.img-pick{display:flex; gap:14px; align-items:center}
+.img-th{width:84px; height:84px; border-radius:16px; overflow:hidden; border:1px solid var(--line2); background:var(--bg2); display:grid; place-items:center; flex:none}
+.img-th img{width:100%; height:100%; object-fit:cover; display:block}
+.img-th svg{width:34px; height:34px; color:var(--faint)}
+.img-act{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.img-act small{flex-basis:100%}
 .toast{position:fixed; left:50%; bottom:22px; transform:translate(-50%,16px); background:var(--text); color:var(--bg); padding:11px 16px; border-radius:12px; font-weight:600; font-size:13.5px; opacity:0; pointer-events:none; transition:.25s; z-index:99; max-width:calc(100% - 32px); text-align:center}
 .toast.show{opacity:1; transform:translate(-50%,0)}
 .toast.bad{background:var(--danger); color:#fff}
@@ -286,6 +292,9 @@ code{font-family:"JetBrains Mono",monospace; font-size:12.5px; background:var(--
     {key:"profile", label:"Hero & contact", anchor:"home", desc:"Your name, intro and the contact links used across the site.",
      schema:{type:"object", cols:true, fields:{
       name:F("text","Full name"), eyebrow:F("text","Line above your name"),
+      photo:F("image","Profile photo", {full:true}),
+      photoBadge:F("text","Label on the photo (optional)", {help:'e.g. "Open to internships" — leave empty to hide'}),
+      photoAlt:F("text","Photo description (optional)", {help:"Read aloud by screen readers"}),
       rolesPrefix:F("text","Rotating line — start", {help:'e.g. "I build"'}),
       roles:F("list","Rotating line — phrases", {full:true, help:"Shown one after another. Press Enter to add."}),
       tagline:F("textarea","Tagline", {full:true}), location:F("text","Location"), email:F("text","Email"),
@@ -398,7 +407,7 @@ code{font-family:"JetBrains Mono",monospace; font-size:12.5px; background:var(--
   function field(fs, path){
     const id = "f" + (++uid), v = getAt(path);
     const wrap = h("div", {class:"f" + (fs.full ? " full" : "")});
-    const lab = h(["list","filters","icon"].includes(fs.type) ? "div" : "label", fs.type.match(/list|filters|icon/) ? {class:"lbl", id:id+"-l"} : {for:id}, esc(fs.label));
+    const lab = h(["list","filters","icon","image"].includes(fs.type) ? "div" : "label", /^(list|filters|icon|image)$/.test(fs.type) ? {class:"lbl", id:id+"-l"} : {for:id}, esc(fs.label));
     wrap.append(lab);
     let ctl;
     switch (fs.type) {
@@ -415,6 +424,7 @@ code{font-family:"JetBrains Mono",monospace; font-size:12.5px; background:var(--
       case "list": ctl = listEditor(path, id); break;
       case "filters": ctl = filterPicker(path, id); break;
       case "icon": ctl = iconPicker(path, id); break;
+      case "image": ctl = imagePicker(path, id); break;
       default:
         ctl = h("input", {class:"in" + (fs.type === "url" ? " mono" : ""), id, type: fs.type === "url" ? "url" : "text", spellcheck: fs.type === "url" ? "false" : "true"});
         ctl.value = v ?? "";
@@ -482,6 +492,44 @@ code{font-family:"JetBrains Mono",monospace; font-size:12.5px; background:var(--
     return box;
   }
 
+
+  /* Square-crop and shrink a photo in the browser (keeps the face for portrait shots) */
+  const resizeImage = file => new Promise((res, rej) => {
+    const img = new Image(), u = URL.createObjectURL(file);
+    img.onload = () => {
+      const w = img.naturalWidth, hh = img.naturalHeight, s = Math.min(w, hh), out = Math.min(800, s);
+      const cv = document.createElement("canvas"); cv.width = cv.height = out;
+      const ctx = cv.getContext("2d"); ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(img, (w - s) / 2, hh > w ? (hh - s) * 0.2 : (hh - s) / 2, s, s, 0, 0, out, out);
+      URL.revokeObjectURL(u); res(cv.toDataURL("image/jpeg", 0.86));
+    };
+    img.onerror = () => { URL.revokeObjectURL(u); rej(new Error("bad image")); };
+    img.src = u;
+  });
+  function imagePicker(path, id){
+    const box = h("div", {class:"img-pick", "aria-labelledby": id+"-l"});
+    const draw = () => {
+      const v = getAt(path) || ""; box.innerHTML = "";
+      const th = h("div", {class:"img-th"});
+      if (v) { const im = h("img", {alt:""}); im.src = v; th.append(im); }
+      else th.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>';
+      const act = h("div", {class:"img-act"});
+      const inp = h("input", {type:"file", accept:"image/jpeg,image/png,image/webp", class:"hidden", id});
+      const up = h("button", {type:"button", class:"btn sm" + (v ? "" : " primary")}, v ? "Change photo" : "Upload photo");
+      up.addEventListener("click", () => inp.click());
+      act.append(up);
+      if (v) act.append(h("button", {type:"button", class:"btn ghost sm danger", onclick: () => { setAt(path, ""); draw(); }}, "Remove"));
+      act.append(h("small", {}, v.startsWith("data:") ? "New photo — it uploads when you press Publish." : "JPG or PNG. It's cropped to a square and resized for you."));
+      inp.addEventListener("change", async () => {
+        const f = inp.files[0]; if (!f) return;
+        if (f.size > 15e6) { toast("That file is over 15 MB. Pick a smaller photo.", true); return; }
+        try { setAt(path, await resizeImage(f)); draw(); toast("Photo added — check the preview, then Publish"); }
+        catch(e) { toast("Couldn't read that image. Try a JPG or PNG.", true); }
+      });
+      box.append(th, act, inp);
+    };
+    draw(); return box;
+  }
   const CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg>';
   const ICO = {
     up:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg>',
@@ -648,12 +696,28 @@ code{font-family:"JetBrains Mono",monospace; font-size:12.5px; background:var(--
     throw new Error(r.data?.message || "Couldn't load content (" + r.status + ")");
   }
 
+
+  async function uploadImages(){
+    const jobs = [];
+    const walk = (o, path) => { if (!o || typeof o !== "object") return;
+      for (const k in o) { const v = o[k];
+        if (typeof v === "string" && v.startsWith("data:image/")) jobs.push({o, k, v, name: (isNaN(k) ? k : "img") });
+        else walk(v, [...path, k]); } };
+    walk(C, []);
+    for (const j of jobs) {
+      const file = `assets/${j.name}-${Date.now()}.jpg`;
+      const r = await gh(`/repos/${auth.repo}/contents/${file}`, {method:"PUT", body: JSON.stringify({message:"Upload photo (via admin)", branch: auth.branch, content: j.v.split(",")[1]})});
+      if (!r.ok) throw new Error(r.status === 403 || r.status === 404 ? "Your token can't write to this repo. Give it Contents: Read and write." : (r.data?.message || "Photo upload failed (" + r.status + ")"));
+      j.o[j.k] = file;
+    }
+  }
   async function publish(){
     const msgSecs = [...changed].map(k => SECTIONS.find(s => s.key === k)?.label).filter(Boolean);
     const message = "Update portfolio" + (msgSecs.length ? ": " + msgSecs.join(", ") : "") + " (via admin)";
     setStatus("busy", "Publishing…");
     const put = s => gh(filePath(), {method:"PUT", body: JSON.stringify({message, branch: auth.branch, content: b64enc(JSON.stringify(C, null, 2) + "\n"), ...(s ? {sha: s} : {})})});
     try {
+      try { await uploadImages(); } catch(e) { setStatus("dirty"); toast(e.message, true); return; }
       let r = await put(sha);
       if (!r.ok && (r.status === 409 || r.status === 422)) {
         // File changed on GitHub since it was loaded (e.g. edited from another device)
